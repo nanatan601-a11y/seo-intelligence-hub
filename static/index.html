@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence-first SEO, GEO and SEM intelligence, weekly briefs and expert monitoring.">
+  <title>Signal Desk · SEO Intelligence</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><strong>Signal Desk</strong><small>SEO INTELLIGENCE</small></div>
+      </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-group">
+          <p class="nav-label">Workspace</p>
+          <a href="#dashboard" data-route="dashboard" class="nav-link active"><i>⌂</i><span>Intelligence Dashboard</span></a>
+          <a href="#weekly" data-route="weekly" class="nav-link"><i>◇</i><span>Weekly Brief</span></a>
+          <a href="#official" data-route="official" class="nav-link"><i>◎</i><span>Official Updates</span></a>
+        </div>
+        <div class="nav-group">
+          <p class="nav-label">Core Capabilities</p>
+          <a href="#content" data-route="content" class="nav-link"><i class="dot coral"></i><span>Content SEO</span></a>
+          <a href="#technical" data-route="technical" class="nav-link"><i class="dot cyan"></i><span>Technical SEO</span></a>
+          <a href="#authority" data-route="authority" class="nav-link"><i class="dot violet"></i><span>Authority SEO</span></a>
+        </div>
+        <div class="nav-group">
+          <p class="nav-label">Specialist Tracks</p>
+          <a href="#international" data-route="international" class="nav-link"><i class="dot gold"></i><span>International SEO</span></a>
+          <a href="#geo" data-route="geo" class="nav-link"><i class="dot green"></i><span>GEO / AI Search</span></a>
+          <a href="#sem" data-route="sem" class="nav-link"><i class="dot blue"></i><span>SEM</span></a>
+        </div>
+        <div class="nav-group">
+          <p class="nav-label">Knowledge Network</p>
+          <a href="#experts" data-route="experts" class="nav-link"><i>♙</i><span>Expert Network</span></a>
+          <a href="#search" data-route="search" class="nav-link"><i>⌕</i><span>Search & Archive</span></a>
+          <a href="#sources" data-route="sources" class="nav-link"><i>⚙</i><span>Source Registry</span></a>
+        </div>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="health-dot" id="health-dot"></div>
+        <div><strong id="health-label">Intelligence engine</strong><small id="health-detail">Loading source health</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menu-button" aria-label="Open navigation">☰</button>
+        <div class="breadcrumbs"><span>SEO Intelligence Hub</span><b>/</b><strong id="page-crumb">Dashboard</strong></div>
+        <div class="top-actions">
+          <button class="icon-button" id="global-search-button" aria-label="Search">⌕</button>
+          <button class="refresh-button" id="refresh-button"><span>↻</span> Refresh intelligence</button>
+        </div>
+      </header>
+
+      <div id="app" class="page" aria-live="polite">
+        <div class="loading-state"><div class="spinner"></div><p>Loading the intelligence hub…</p></div>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+
+  <dialog id="source-dialog" class="modal">
+    <form id="source-form" method="dialog">
+      <div class="modal-head">
+        <div><span class="eyebrow">SOURCE REGISTRY</span><h2>Add an intelligence source</h2></div>
+        <button type="button" class="icon-button" data-close-modal aria-label="Close">×</button>
+      </div>
+      <div class="form-grid">
+        <label class="field span-2"><span>Source name *</span><input name="name" required placeholder="e.g. Google Search Central"></label>
+        <label class="field"><span>Author / organization</span><input name="owner" placeholder="Organization or expert name"></label>
+        <label class="field"><span>Source type</span><select name="kind"><option value="official">Official</option><option value="industry" selected>Industry publication</option><option value="expert">Expert</option><option value="research">Research</option></select></label>
+        <label class="field span-2"><span>RSS / Atom URL</span><input name="feed_url" type="url" placeholder="https://example.com/feed.xml"></label>
+        <label class="field span-2"><span>Website URL</span><input name="site_url" type="url" placeholder="https://example.com/"></label>
+        <label class="field"><span>Default channel</span><select name="category"><option value="content">Content SEO</option><option value="technical">Technical SEO</option><option value="authority">Authority SEO</option><option value="international">International SEO</option><option value="geo">GEO / AI Search</option><option value="sem">SEM</option></select></label>
+        <label class="field"><span>Evidence tier</span><select name="tier"><option value="T0">T0 · Official</option><option value="T1">T1 · Primary research</option><option value="T2" selected>T2 · Expert analysis</option><option value="T3">T3 · Social insight</option><option value="T4">T4 · Unverified</option></select></label>
+        <label class="field"><span>Market</span><input name="market" value="global"></label>
+        <label class="field"><span>Language</span><select name="language"><option value="en">English</option><option value="zh">Chinese</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="multi">Multilingual</option></select></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="button ghost" data-close-modal>Cancel</button><button type="submit" class="button primary">Save source</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="article-dialog" class="modal article-modal" aria-labelledby="article-preview-title">
+    <div id="article-dialog-content"></div>
+  </dialog>
+
+  <script src="./demo-data.js" defer></script>
+  <script src="./app.js" defer></script>
+</body>
+</html>
